@@ -50,7 +50,8 @@ class RAFLib:
             for entry in range(len(path_list)):
                 print "[Info]Generating: %s" % path.abspath(path_list[entry])
                 the_path, filename = path.split(path_list[entry])
-                if not path.exists(the_path): makedirs(the_path)  # Create directory if it doesn't exist
+                #print path.split(path_list[1])
+                if not the_path=="" and not path.exists(the_path): makedirs(the_path)  # Create directory if it doesn't exist
                 actual_file = open(path_list[entry][0:-1], "w+")  # Create related file in path
                 self.raf_data.seek(file_entries[entry][1], 0)  # Go to correct data_offset in raf.dat
                 raf_data = self.raf_data.read(file_entries[entry][2]) # Read the data_size in raf.dat
