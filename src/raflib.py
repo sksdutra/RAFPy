@@ -35,13 +35,16 @@ class RAFLib:
         return file_entries_list
 
     def __get_path_list_entries(self):
-        print "{Info]Path List Offset starting at: %s. Storing..." % (hex(self.path_list_offset))
+        print "[Info]Path List Offset starting at: %s. Storing..." % (hex(self.path_list_offset))
         path_list_size = self.le_data(self.raf.read(4))  # Total size of the path list (bytes)
         path_list_count = self.le_data(self.raf.read(4))  # Number of entries in path list
         # List of [path_offset, path_length]
         path_list_entries = [[self.le_data(self.raf.read(4)) for file_entry in range(2)]
                              for file_entries in range(path_list_count)]
         return path_list_entries
+
+    def unpack_the(self, object):
+        # TODO Unpacks a specific object in file
 
     def unpack_content(self):
         # Sort the file entries by path index

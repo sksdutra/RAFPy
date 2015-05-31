@@ -2,7 +2,8 @@
 
 from sys import argv, exit
 
-import raflib
+from src import raflib
+
 
 def help():
     print "Usage: -u or --unpack: Unpacks the content of RAF (Riot Archive File).\n" \
